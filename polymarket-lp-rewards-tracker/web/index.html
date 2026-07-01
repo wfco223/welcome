@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polymarket US · Liquidity Rewards Tracker</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="/static/chart.umd.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Liquidity Rewards Tracker</h1>
+      <span class="sub">Polymarket&nbsp;US · Incentives API</span>
+    </div>
+    <div class="status">
+      <span id="mode-badge" class="badge">…</span>
+      <span id="auth-badge" class="badge">…</span>
+      <span id="refresh" class="refresh">refresh in <b id="countdown">–</b>s</span>
+      <button id="refresh-btn" title="Refresh now">↻</button>
+    </div>
+  </header>
+
+  <section class="cards" id="cards"></section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Earnings over time</h2>
+      <span class="hint">Daily PAID + PENDING (bars) and cumulative (line), from <code>/v1/incentives/earnings</code></span>
+    </div>
+    <div class="chart-wrap"><canvas id="earnings-chart"></canvas></div>
+  </section>
+
+  <div class="grid-2">
+    <section class="panel">
+      <div class="panel-head"><h2>Earnings by market</h2></div>
+      <div class="table-wrap"><table id="markets-table"></table></div>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><h2>Account balances</h2></div>
+      <div class="table-wrap"><table id="balances-table"></table></div>
+    </section>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Active incentive programs</h2>
+      <span class="hint">Reward pools from <code>/v1/incentives</code>; midpoint &amp; your standing are live estimates</span>
+    </div>
+    <div class="table-wrap"><table id="programs-table"></table></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>My open maker orders &amp; eligibility</h2>
+      <span class="hint">Eligibility estimated from live book vs program target size and max spread</span>
+    </div>
+    <div class="table-wrap"><table id="orders-table"></table></div>
+  </section>
+
+  <footer>
+    <span id="foot-note"></span>
+    Reward-zone / share figures are estimates from public order-book data; paid/pending USD come from the official Incentives API.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

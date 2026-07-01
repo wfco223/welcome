@@ -1,0 +1,6 @@
+# Polymarket US Liquidity Rewards Tracker
+polymarket-us>=0.1.2      # official Polymarket US Python SDK
+fastapi>=0.110            # web API
+uvicorn[standard]>=0.29   # ASGI server
+pydantic-settings>=2.0    # env-driven config
+python-dotenv>=1.0        # load .env
